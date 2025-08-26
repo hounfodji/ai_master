@@ -9,6 +9,7 @@ class AgentState(TypedDict):
 llm = OllamaLLM(model="gpt-oss:latest")
 
 def process(state: AgentState) -> AgentState:
+    """This node call a llm an give response to user."""
     response = llm.invoke(state["messages"])
     print(f'\nAI: {response}')
     return state
